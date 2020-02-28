@@ -1,0 +1,114 @@
+
+            
+------------NavBar HTML Snippet---------------
+            <nav>
+                <h1>Context App</h1>
+                <ul>
+                  <li>Home</li>
+                  <li>About</li>
+                  <li>Contact</li>
+                </ul>
+            </nav>
+
+-----------Booklist HTML Snippet----------------
+
+            <div className="book-list">
+                <ul>
+                    <li>the way of kings</li>
+                    <li>the name of the wind</li>
+                    <li>the final empire</li>
+                </ul>
+            </div>
+
+------------Styles---------------
+
+/* app styles */
+.App {
+  max-width: 400px;
+  margin: 30px auto;
+  text-align: center;
+}
+nav{
+  padding: 5px;
+}
+nav ul {
+  padding: 0;
+}
+nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+.book-list {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.book-list ul{
+  padding: 0;
+  list-style-type: none;
+}
+.book-list li {
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+
+------------------- themes state ------------------
+isLightTheme: true,
+        light: {
+            systax: '#555',
+            ui: '#ddd',
+            bg: '#eee'
+        },
+        dark: {
+            systax: '#ddd',
+            ui: '#333',
+            bg: '#555'
+        }
+
+
+
+
+-------------------form---------------
+
+<form>
+            <label>
+                lable
+            </label>
+            <input type="text">
+            </input>
+            <input type="submit"></input>
+        </form>
+
+
+
+
+------------------product-------------
+
+const initState = [
+  {title: 'Apple', id: 1},
+  {title: 'banana', id: 2},
+  {title: 'Cheese', id: 3},
+  {title: 'Soda', id: 4}
+];
+
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'add_product':
+      return [...state, {title: action.payload, id: 5}];
+    case 'remove_product':
+      const newState = state.filter( val => val != action.index);
+      return newState;
+    default:
+      throw new Error();
+  }
+}
+
+
+-----------themes
+product list
+style={{color: theme.syntax, background: theme.bg}}
+style={{background: theme.ui}}
+nav
+style={{ background: theme.ui, color: theme.syntax }}
